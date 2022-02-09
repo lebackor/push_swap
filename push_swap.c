@@ -41,5 +41,5 @@ void    print_liste(pile *test)
         printf("%d | ", test->content);
         test = test->next;
     }
-    printf("%d", test->content);
+    printf("%d \n", test->content);
 }

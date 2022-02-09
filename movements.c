@@ -7,7 +7,7 @@ void swap_x(pile *stack)
 
     t1 = stack;
     t2 = t1->next;
-    t1->next = t1->next->next;
-    t2->next->next =  t2->next;
+  //  t1->next = t1->next->next;
+    t2->next->next = t2->next;
     //st1->next = stack->next;
 }
