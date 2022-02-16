@@ -16,22 +16,23 @@ int main(int ac, char **av)
     while (++i < ac)
         ft_addback(&a, ft_atoi(av[i]));
     if (!check_duplicates_or_limits(a))
-    {
-        write(1, "Error\n", 6);
-        return (0);
-    }
-    if (is_sorted(a))
-        printf("sorted\n");
+        return(ft_printf("Error\n"));
+    //if (is_sorted(a))
+       // return (ft_printf("sorted"));
     
     //print_liste(a);
     //swap_x(&a);
     //print_liste(a);
-    //move_pile(&a, &b);
-    //print_liste(a);
-    //print_liste(b);
-    reverse_rotate(&a);
+    push_pile(&a, &b);
+    push_pile(&a, &b);
+    push_pile(&a, &b);
+    push_pile(&a, &b);
+    //rotate(&a);
     print_liste(a);
-
+    print_liste(b);
+    reverse_rotate_rr(&a, &b);
+    print_liste(a);
+    print_liste(b);
 }
 
 void    print_liste(pile *test)

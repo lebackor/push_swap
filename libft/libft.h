@@ -19,6 +19,7 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
+# include <stdarg.h>
 # define BUFFER_SIZE 1
 
 typedef struct s_list
@@ -54,7 +55,7 @@ char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		*ft_strjoin(char const *s1, char const *s2);
 char		*ft_strtrim(char const *s1, char const *set);
 char		*ft_itoa(int n);
-void	f	t_putchar_fd(char c, int fd);
+void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char *s, int fd);
 char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void		ft_striteri(char *s, void (*f)(unsigned int, char*));
@@ -81,4 +82,7 @@ int			ft_printf(const char *str, ...);
 int			ft_pointer(unsigned long long nb, int *count);
 int			ft_putnbr_u(unsigned int nb);
 long long	ft_count_nb(long long nb);
+int			ft_putchar(char c);
+int			ft_putstr(char *str);
+int			ft_putnbr(int nb);
 #endif
