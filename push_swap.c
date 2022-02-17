@@ -1,6 +1,7 @@
 #include "push_swap.h"
 
 void    print_liste(pile *test);
+int ft_strlenlist(pile **a);
 
 int main(int ac, char **av)
 {
@@ -9,7 +10,7 @@ int main(int ac, char **av)
     pile *b;
 
     i = 1;
-    if (ac == 1)
+    if (ac == 1 || check_notnb(av))
         return (0);
     a = create_liste(ft_atoi(av[1]));
     b = NULL;
@@ -19,22 +20,25 @@ int main(int ac, char **av)
         return(ft_printf("Error\n"));
     //if (is_sorted(a))
        // return (ft_printf("sorted"));
-    
-    //print_liste(a);
-    //swap_x(&a);
-    //print_liste(a);
-    push_pile(&a, &b);
-    push_pile(&a, &b);
-    push_pile(&a, &b);
-    push_pile(&a, &b);
-    //rotate(&a);
-    print_liste(a);
-    print_liste(b);
-    reverse_rotate_rr(&a, &b);
-    print_liste(a);
-    print_liste(b);
+
+    printf("%d", ft_strlenlist(&a)); 
 }
 
+int ft_strlenlist(pile **a)
+{
+    int i;
+
+    i = 0;
+    if (!(*a))
+        return (0);
+    while ((*a)->next)
+    {
+        (*a) = (*a)->next;
+        i++;
+    }
+    i++;
+    return (i);
+}
 void    print_liste(pile *test)
 {
     while (test->next)

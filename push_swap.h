@@ -23,4 +23,5 @@ pile    *reverse_rotate(pile **stack);
 void    swap_ss(pile **a, pile **b);
 pile    *rotate_rr(pile **a, pile **b);
 pile    *reverse_rotate_rr(pile **a, pile **b);
+int check_notnb(char **av);
 #endif
