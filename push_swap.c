@@ -10,14 +10,13 @@ int main(int ac, char **av)
     pile *b;
 
     i = 1;
-    if (ac == 1 || check_notnb(av))
+    if (ac == 1 || !check_notnb(av))
         return (0);
     a = create_liste(ft_atoi(av[1]));
     b = NULL;
+    printf("e");
     while (++i < ac)
         ft_addback(&a, ft_atoi(av[i]));
-    if (!check_duplicates_or_limits(a))
-        return(ft_printf("Error\n"));
     //if (is_sorted(a))
        // return (ft_printf("sorted"));
 

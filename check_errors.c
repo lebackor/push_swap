@@ -6,7 +6,7 @@ int check_notnb(char **av)
     int j;
 
     i = 0;
-    j = 0;
+    j = 1;
     while (av[j][i])
     {
         i = 0;
@@ -14,7 +14,7 @@ int check_notnb(char **av)
         {
             if (av[j][i] < '0' || av[j][i] > '9')
             {
-                ft_printf("error detected");
+                ft_printf("Error\n");
                 return (0);
             }
             i++;
