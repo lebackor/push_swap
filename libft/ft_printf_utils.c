@@ -48,9 +48,9 @@ int	ft_put_hexa_maj(unsigned int nb)
 
 int	ft_print_hexa(unsigned long long nb, int a, int *count)
 {
-	if (nb >= 0 && nb < 16)
+	if (nb > 0 && nb < 16)
 	{
-		if (nb >= 0 && nb <= 9)
+		if (nb > 0 && nb <= 9)
 			ft_putchar(nb + 48);
 		else
 		{

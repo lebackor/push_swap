@@ -2,25 +2,41 @@
 
 void    print_liste(pile *test);
 int ft_strlenlist(pile **a);
+int    fill_list(int ac, char **av, pile **a);
 
 int main(int ac, char **av)
 {
-    int i;
+    //int i;
+  //  long long nb;
     pile *a;
-    pile *b;
+  //  pile *b;
 
-    i = 1;
-    if (ac == 1 || !check_notnb(av))
-        return (0);
-    a = create_liste(ft_atoi(av[1]));
-    b = NULL;
-    printf("e");
+  //  i = 0;
+    a = NULL;
+   // b = NULL;
+    if (ac == 1 || !check_notnb(av, ac) || !fill_list(ac, av, &a))
+        return (ft_printf("Error\n"));
+   // init_algo(&a, &b);
+    print_liste(a);
+   // print_liste(b);
+}
+
+int    fill_list(int ac, char **av, pile **a)
+{
+    int i;
+    long long nb; 
+    i = 0;
+    
     while (++i < ac)
-        ft_addback(&a, ft_atoi(av[i]));
-    //if (is_sorted(a))
-       // return (ft_printf("sorted"));
-
-    printf("%d", ft_strlenlist(&a)); 
+    {
+        nb = ft_atoi(av[i]);
+        if (nb < -2147483648 || nb > 2147483647)
+            return (0);
+        *a = ft_addback(a, nb);
+        if (!check_duplicates_or_limits(*a))
+            return (0);
+    }
+    return (1);
 }
 
 int ft_strlenlist(pile **a)

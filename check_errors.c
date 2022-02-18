@@ -1,22 +1,20 @@
 #include "push_swap.h"
 
-int check_notnb(char **av)
+int check_notnb(char **av, int ac)
 {
-    int i;
+    size_t i;
     int j;
 
     i = 0;
     j = 1;
-    while (av[j][i])
+    while (j < ac)
     {
         i = 0;
-        while(av[j][i])
+        while(i < ft_strlen(av[j]))
         {
-            if (av[j][i] < '0' || av[j][i] > '9')
-            {
-                ft_printf("Error\n");
+            if ((!(av[j][i] >= '0' && av[j][i] <= '9') && (av[j][i] != '-'))
+                || (av[j][i] == '-' && i != 0 ))
                 return (0);
-            }
             i++;
         }
         j++;
@@ -33,8 +31,8 @@ int check_duplicates_or_limits(pile *liste)
     
     while (t->next)
     {    
-        if (t->content < -2147483648 || t->content > 2147483647)
-            return (0);
+      //  if ((t->content < -2147483648) || (t->content > 2147483647))
+        //    return (0);
         a = t->next;
         if (t->content == a->content)
             return 0;

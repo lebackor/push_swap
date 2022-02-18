@@ -1,7 +1,7 @@
 #include "push_swap.h"
 
 
-pile *create_liste(int x)
+pile *create_liste(long long x)
 {
 	pile	*stack;
 
@@ -12,22 +12,20 @@ pile *create_liste(int x)
 	return (stack);
 }
 
-pile *ft_addback(pile **stack, int x)
+pile *ft_addback(pile **stack, long long x)
 {
 	pile *pile;
 
-	/*if (!*stack)
-	{
-		*stack = create_liste(x);
-		//printf("%d", stack->content);
-	}
+
+	if (!(*stack))
+		(*stack) = create_liste(x);
 	else
-	{*/
+	{
 		pile = *stack;
 		while (pile->next != NULL)
 			pile = pile->next;
 		pile->next = create_liste(x);
 		//printf("%d", pile->content);
-	//}
+	}
 	return (*stack);
 }

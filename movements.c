@@ -18,7 +18,7 @@ void    swap_ss(pile **a, pile **b)
     swap_x(*&b);
 }
 
-pile *push_pile(pile **stack1, pile **stack2)
+void push_pile(pile **stack1, pile **stack2)
 {
    // pile *tmp;
 
@@ -28,7 +28,8 @@ pile *push_pile(pile **stack1, pile **stack2)
     {
         *stack2 = create_liste((*stack1)->content);
         (*stack1) = (*stack1)->next;
-        return (*stack2);
+        return ;
+       //s return (*stack2);
     }
     ft_addback((*&stack2), (*stack1)->content);
    // ft_printf("X%d |", (*stack2)->content);
@@ -36,10 +37,11 @@ pile *push_pile(pile **stack1, pile **stack2)
    // printf("lo");
    //(*stack2) = (*stack2)->next;
     (*stack1) = (*stack1)->next;
-    return (*stack2);
+   // return (*stack2);
+   return ;
 }
 
-pile    *rotate(pile **stack)
+void    rotate(pile **stack)
 {
     pile    *tmp;
     pile    *tmp2;
@@ -51,15 +53,16 @@ pile    *rotate(pile **stack)
         tmp = tmp->next;
     tmp->next = tmp2;
     tmp->next->next = NULL;
+   // return (*stack);
 }
 
-pile    *rotate_rr(pile **a, pile **b)
+void    rotate_rr(pile **a, pile **b)
 {
     rotate(*&a);
     rotate(*&b);
 }
 
-pile    *reverse_rotate(pile **stack)
+void    reverse_rotate(pile **stack)
 {
     pile *tmp;
     pile *tmp2;
@@ -71,10 +74,10 @@ pile    *reverse_rotate(pile **stack)
     tmp->next = NULL;
     tmp2->next = (*stack);
     (*stack) = tmp2;
-    return *stack;
+   // return *stack;
 }
 
-pile    *reverse_rotate_rr(pile **a, pile **b)
+void    reverse_rotate_rr(pile **a, pile **b)
 {
     reverse_rotate(*&a);
     reverse_rotate(*&b);

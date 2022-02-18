@@ -45,7 +45,7 @@ int	ft_putnbr_u(unsigned int nb)
 	unsigned long	i;
 
 	i = ft_count_nb(nb);
-	if (nb >= 0 && nb <= 9)
+	if ((nb > 0 && nb <= 9))
 	{
 		nb += 48;
 		write(1, &nb, 1);

@@ -10,13 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+//#include "libft.h"
 
-int	ft_atoi(const char *str)
+long long	ft_atoi(char *str)
 {
 	int			i;
 	long long	nb;
-	int			sign;
+	long long			sign;
 
 	i = 0;
 	nb = 0;
@@ -31,10 +31,10 @@ int	ft_atoi(const char *str)
 	}
 	while (str[i] >= 48 && str[i] <= 57)
 	{
-		if (nb * sign > 2147483647)
-			return (-1);
-		else if (nb * sign < -2147483648)
-			return (0);
+	//	if (nb * sign > 2147483647)
+	//		return (-1);
+	//	else if (nb * sign < -2147483648)
+	//		return (-1);
 		nb = nb * 10 + str[i] - 48;
 		i++;
 	}
