@@ -29,15 +29,9 @@ void push_pile(pile **stack1, pile **stack2)
         *stack2 = create_liste((*stack1)->content);
         (*stack1) = (*stack1)->next;
         return ;
-       //s return (*stack2);
     }
     ft_addback((*&stack2), (*stack1)->content);
-   // ft_printf("X%d |", (*stack2)->content);
-    //(*stack2)->next = NULL;
-   // printf("lo");
-   //(*stack2) = (*stack2)->next;
     (*stack1) = (*stack1)->next;
-   // return (*stack2);
    return ;
 }
 

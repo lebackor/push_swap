@@ -25,4 +25,6 @@ void    rotate_rr(pile **a, pile **b);
 void    reverse_rotate_rr(pile **a, pile **b);
 int check_notnb(char **av, int ac);
 void    init_algo(pile **a, pile **b);
+pile    *find_higher_nb(pile **a);
+
 #endif

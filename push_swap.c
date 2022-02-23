@@ -9,16 +9,19 @@ int main(int ac, char **av)
     //int i;
   //  long long nb;
     pile *a;
-  //  pile *b;
+    pile *b;
 
   //  i = 0;
     a = NULL;
-   // b = NULL;
+    b = NULL;
     if (ac == 1 || !check_notnb(av, ac) || !fill_list(ac, av, &a))
         return (ft_printf("Error\n"));
-   // init_algo(&a, &b);
+  //  printf("e");
+   init_algo(&a, &b);
     print_liste(a);
-   // print_liste(b);
+    print_liste(b);
+   // push_pile(&a, &b);
+   // print_liste(a);
 }
 
 int    fill_list(int ac, char **av, pile **a)
