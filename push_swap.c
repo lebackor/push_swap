@@ -10,7 +10,7 @@ int main(int ac, char **av)
   //  long long nb;
     pile *a;
     pile *b;
-
+    //(void) *b;
   //  i = 0;
     a = NULL;
     b = NULL;
@@ -18,6 +18,8 @@ int main(int ac, char **av)
         return (ft_printf("Error\n"));
   //  printf("e");
    init_algo(&a, &b);
+  //reverse_rotate(&a);
+  //  rotate(&a);
     print_liste(a);
     print_liste(b);
    // push_pile(&a, &b);
