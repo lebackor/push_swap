@@ -17,9 +17,8 @@ int main(int ac, char **av)
     if (ac == 1 || !check_notnb(av, ac) || !fill_list(ac, av, &a))
         return (ft_printf("Error\n"));
   //  printf("e");
-   init_algo(&a, &b);
-  //reverse_rotate(&a);
-  //  rotate(&a);
+    if (ft_strlenlist(&a) < 6)
+        short_sort(&a, &b);
     print_liste(a);
     print_liste(b);
    // push_pile(&a, &b);

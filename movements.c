@@ -18,7 +18,7 @@ void    swap_ss(pile **a, pile **b)
     swap_x(*&b);
 }
 
-void push_pile(pile **stack1, pile **stack2)
+void push_pile(pile **stack1, pile **stack2, char c)
 {
    // pile *tmp;
 
@@ -32,10 +32,14 @@ void push_pile(pile **stack1, pile **stack2)
     }
     ft_addback((*&stack2), (*stack1)->content);
     (*stack1) = (*stack1)->next;
+   if (c == 'a')
+        ft_printf("pa\n");
+    else if (c == 'b')
+        ft_printf("pb\n");
    return ;
 }
 
-void    rotate(pile **stack)
+void    rotate(pile **stack, char c)
 {
     pile    *tmp;
     pile    *tmp2;
@@ -47,16 +51,19 @@ void    rotate(pile **stack)
         tmp = tmp->next;
     tmp->next = tmp2;
     tmp->next->next = NULL;
-   // return (*stack);
+    if (c == 'a')
+        ft_printf("ra\n");
+    else if (c == 'b')
+        ft_printf("rb\n");
 }
 
 void    rotate_rr(pile **a, pile **b)
 {
-    rotate(*&a);
-    rotate(*&b);
+    rotate(*&a, 'a');
+    rotate(*&b, 'b');
 }
 
-void    reverse_rotate(pile **stack)
+void    reverse_rotate(pile **stack, char c)
 {
     pile *tmp;
     pile *tmp2;
@@ -68,11 +75,15 @@ void    reverse_rotate(pile **stack)
     tmp->next = NULL;
     tmp2->next = (*stack);
     (*stack) = tmp2;
-   // return *stack;
+    if (c == 'a')
+        ft_printf("rra\n");
+    else if (c == 'b')
+        ft_printf("rrb\n");
 }
 
 void    reverse_rotate_rr(pile **a, pile **b)
 {
-    reverse_rotate(*&a);
-    reverse_rotate(*&b);
+    reverse_rotate(*&a, 'a');
+    reverse_rotate(*&b , 'b');
+    ft_printf("rra\nrrb\n");
 }
