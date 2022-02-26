@@ -17,10 +17,11 @@ int main(int ac, char **av)
     if (ac == 1 || !check_notnb(av, ac) || !fill_list(ac, av, &a))
         return (ft_printf("Error\n"));
   //  printf("e");
-    if (ft_strlenlist(&a) < 6)
+   // printf("%d", ft_strlenlist(&a));
+    //if (ft_strlenlist(&a) < 6)
         short_sort(&a, &b);
-    print_liste(a);
-    print_liste(b);
+  //  print_liste(a);
+    //print_liste(b);
    // push_pile(&a, &b);
    // print_liste(a);
 }
@@ -46,16 +47,19 @@ int    fill_list(int ac, char **av, pile **a)
 int ft_strlenlist(pile **a)
 {
     int i;
+    pile *tmp;
 
     i = 0;
     if (!(*a))
         return (0);
-    while ((*a)->next)
+    tmp = *a;
+    while ((tmp)->next)
     {
-        (*a) = (*a)->next;
+        (tmp) = (tmp)->next;
         i++;
     }
     i++;
+  //  printf("%d", i);
     return (i);
 }
 void    print_liste(pile *test)

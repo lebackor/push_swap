@@ -6,6 +6,7 @@ SRCS	=	check_errors.c\
 			push_swap.c\
 			algo.c\
 			sort.c\
+			utils.c\
 			libft/ft_printf.c\
 			libft/ft_strlen.c\
 			libft/ft_atoi.c\

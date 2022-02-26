@@ -29,4 +29,6 @@ void    init_algo(pile **a, pile **b);
 pile    *find_higher_nb(pile **a);
 void    search_pile_b(pile **a, pile **b);
 void short_sort(pile **a, pile **b);
+int ft_strlenlist(pile **a);
+int    *list_on_tab(pile **a);
 #endif
