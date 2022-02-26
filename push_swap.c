@@ -19,8 +19,9 @@ int main(int ac, char **av)
   //  printf("e");
    // printf("%d", ft_strlenlist(&a));
     //if (ft_strlenlist(&a) < 6)
-        short_sort(&a, &b);
-  //  print_liste(a);
+    print_liste(a);
+    short_sort(&a, &b);
+    //  print_liste(a);
     //print_liste(b);
    // push_pile(&a, &b);
    // print_liste(a);

@@ -15,6 +15,10 @@ SRCS	=	check_errors.c\
 			libft/ft_putstr.c\
 			libft/ft_putnbr.c\
 			libft/ft_putchar.c\
+			libft/ft_itoa.c\
+			libft/ft_calloc.c\
+			libft/ft_memset.c\
+			libft/ft_strcmp.c\
 
 OBJS = ${SRCS:.c=.o}
 

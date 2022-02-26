@@ -1,40 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lebackor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/04 19:56:37 by lebackor          #+#    #+#             */
-/*   Updated: 2021/08/04 20:38:34 by lebackor         ###   ########.fr       */
+/*   Created: 2021/08/05 18:57:24 by lebackor          #+#    #+#             */
+/*   Updated: 2021/08/06 11:35:41 by lebackor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-// faire itoa psq 0 dans tableau int == null donc faire itoa tab str et puis faire une comparaison entre les tab en refaisant atoi 
-char	*ft_sort_int_tab(char *tab, int size)
+int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
-	int	j;
-	int	swp;
 
 	i = 0;
-	j = size - 1;
-	swp = 1;
-	while (j > 0)
+	while (s1[i] && s2[i])
 	{
-		if (tab[i] > tab[j])
-		{
-			swp = tab[i];
-			tab[i] = tab[j];
-			tab[j] = swp;
+		if (s1[i] == s2[i])
 			i++;
-		}	
-		else
-			i++;
-		if (i == j)
-		{
-			i = 0;
-			j--;
-		}
+		if (s1[i] < s2[i])
+			return (s1[i] - s2[i]);
+		if (s1[i] > s2[i])
+			return (s1[i] - s2[i]);
 	}
-	return (tab);
+	return (s1[i] - s2[i]);
 }

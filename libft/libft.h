@@ -85,5 +85,6 @@ long long	ft_count_nb(long long nb);
 int			ft_putchar(char c);
 int			ft_putstr(char *str);
 int			ft_putnbr(int nb);
-char		*ft_sort_int_tab(int *tab, int size);
+char		*ft_sort_int_tab(char *tab, int size);
+int	ft_strcmp(char *s1, char *s2);
 #endif
