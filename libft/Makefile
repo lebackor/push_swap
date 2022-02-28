@@ -57,8 +57,7 @@ SRCS	=	ft_bzero.c \
 			ft_lstmap.c	\
 			ft_strcpy.c \
 			ft_sort_int_tab.c\
-			ft_strcmp.c\
-
+			
 OBJS	=	${SRCS:.c=.o}
 
 CC	=	gcc

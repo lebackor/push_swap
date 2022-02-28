@@ -28,8 +28,9 @@ int check_notnb(char **av, int ac);
 void    init_algo(pile **a, pile **b);
 pile    *find_higher_nb(pile **a);
 void    search_pile_b(pile **a, pile **b);
-void short_sort(pile **a, pile **b);
+void begin_median(pile **a, pile **b);
 int ft_strlenlist(pile **a);
 int    *list_on_tab(pile **a);
 char **ft_put_tab(pile **a);
+void clean_a(pile **a, pile **b);
 #endif

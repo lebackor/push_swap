@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 // faire itoa psq 0 dans tableau int == null donc faire itoa tab str et puis faire une comparaison entre les tab en refaisant atoi 
-char	*ft_sort_int_tab(char *tab, int size)
+int	*ft_sort_int_tab(int *tab, int size)
 {
 	int	i;
 	int	j;

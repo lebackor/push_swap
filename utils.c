@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-int    *list_on_tab(pile **a)
+/*int    *list_on_tab(pile **a)
 {
     int *str;
     int i;
@@ -18,4 +18,4 @@ int    *list_on_tab(pile **a)
     if (tmp->next == NULL && tmp->content)
         str[i] = (tmp)->content;
     return (str);
-}
+}*/
