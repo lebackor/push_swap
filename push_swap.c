@@ -20,15 +20,10 @@ int main(int ac, char **av)
    // printf("%d", ft_strlenlist(&a));
     //if (ft_strlenlist(&a) < 6)
     //print_liste(a);
-    //init_algo(&a, &b);
-     push_pile(&a, &b,'b');
-     push_pile(&a, &b,'b');
-             push_pile(&a, &b,'b');
-         push_pile(&a, &b,'b');
-     print_liste(a);
-    print_liste(b);
-   // push_pile(&a, &b);
-   // print_liste(a);
+    init_algo(&a, &b);
+  // clean_a(&a, &b);
+    print_liste(a);
+   // print_liste(b);
 }
 
 int    fill_list(int ac, char **av, pile **a)
