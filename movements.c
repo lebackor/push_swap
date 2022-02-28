@@ -30,8 +30,7 @@ void push_pile(pile **stack1, pile **stack2, char c)
         (*stack1) = (*stack1)->next;
         return ;
     }
-    ft_addback((*&stack2), (*stack1)->content);
-    (*stack1) = (*stack1)->next;
+    ft_put_begin(stack1, stack2);
     if (c == 'a')
         ft_printf("pa\n");
     else if (c == 'b')

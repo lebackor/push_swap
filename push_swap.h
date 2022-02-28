@@ -33,4 +33,6 @@ int ft_strlenlist(pile **a);
 int    *list_on_tab(pile **a);
 char **ft_put_tab(pile **a);
 void clean_a(pile **a, pile **b);
+void	ft_put_begin(pile **a, pile **b);
+
 #endif

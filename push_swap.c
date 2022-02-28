@@ -23,6 +23,8 @@ int main(int ac, char **av)
     //init_algo(&a, &b);
      push_pile(&a, &b,'b');
      push_pile(&a, &b,'b');
+             push_pile(&a, &b,'b');
+         push_pile(&a, &b,'b');
      print_liste(a);
     print_liste(b);
    // push_pile(&a, &b);

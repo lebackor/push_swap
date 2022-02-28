@@ -12,6 +12,20 @@ pile *create_liste(long long x)
 	return (stack);
 }
 
+void	ft_put_begin(pile **a, pile **b)
+{
+	pile *tmp;
+	pile *tmp1;
+	pile *tmp2;
+
+	tmp = *b;
+	tmp2 = (*b)->next;
+	tmp1 = create_liste((*a)->content);
+	*b = tmp1;
+	(*b)->next = tmp;
+	tmp->next = tmp2;
+}
+
 pile *ft_addback(pile **stack, long long x)
 {
 	pile *pile;
