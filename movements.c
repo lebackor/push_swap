@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void swap_x(pile **stack)
+void swap_x(pile **stack, char c)
 {
     pile *t1;
     pile *t2;
@@ -10,12 +10,17 @@ void swap_x(pile **stack)
     t2->next = t2->next->next;
     t1->next = t2;
     *stack = t1;
+    if (c == 'a')
+        ft_printf("sa\n");
+    else if (c == 'b')
+        ft_printf("sb\n");
+
 }
 
-void    swap_ss(pile **a, pile **b)
+void    swap_ss(pile **a, pile **b, char c)
 {
-    swap_x(*&a);
-    swap_x(*&b);
+    swap_x(*&a, c);
+    swap_x(*&b, c);
 }
 
 void push_pile(pile **stack1, pile **stack2, char c)

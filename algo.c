@@ -99,17 +99,18 @@ void    init_algo(pile **a, pile **b)
    // pile    *lst;
 
    tmp = *a;
+   (void) *tmp;
     clean_a(a, b);
    while (ft_strlenlist(b) > 1)  
         find_in_b_max(a, b);
     push_pile(b, a, 'a');
-    while (tmp->next)
+    /*while (tmp->next)
     {
         if (tmp->content < tmp->next->content)
             tmp = tmp->next;
         else if (tmp->content > tmp->next->content)
             swap_x(&tmp);
-    }
+    }*/
     if ((*b))
         push_pile(b, a, 'a');
 }

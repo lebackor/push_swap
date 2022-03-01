@@ -3,26 +3,29 @@
 void    print_liste(pile *test);
 int ft_strlenlist(pile **a);
 int    fill_list(int ac, char **av, pile **a);
-
+// VOIR TEST 7 8 LOOP CA SEGFAULT JSP PK
 int main(int ac, char **av)
 {
     //int i;
   //  long long nb;
     pile *a;
     pile *b;
-    //(void) *b;
+ //   (void) *b;
   //  i = 0;
     a = NULL;
     b = NULL;
     if (ac == 1 || !check_notnb(av, ac) || !fill_list(ac, av, &a))
         return (ft_printf("Error\n"));
-  //  printf("e");
-   // printf("%d", ft_strlenlist(&a));
-    //if (ft_strlenlist(&a) < 6)
-    //print_liste(a);
-    init_algo(&a, &b);
+    //printf("%d", ft_strlenlist(&a));
+    if (ft_strlenlist(&a) > 2)    
+      init_algo(&a, &b);
+    else
+    {
+        if (a->content > a->next->content)
+            swap_x(&a, 'a');
+    }
   // clean_a(&a, &b);
-    print_liste(a);
+   // print_liste(a);
    // print_liste(b);
 }
 
@@ -58,7 +61,7 @@ int ft_strlenlist(pile **a)
         (tmp) = (tmp)->next;
         i++;
     }
-    if (tmp->next == NULL && tmp->content)
+    if (tmp->next == NULL && (tmp->content || tmp->content == 0))
         i++;
   //  printf("%d", i);
     return (i);
