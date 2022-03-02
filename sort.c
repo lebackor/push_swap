@@ -53,6 +53,7 @@ void begin_median(pile **a, pile **b)
   // printf("S %d\n",i);
   // while (str[++j])
     //  printf("%s ", str[j]);
+  //printf("%d\n", ft_strlenlist(a));
    if ((*a)->content == i)
    {
      // push_pile(a, b, 'b');

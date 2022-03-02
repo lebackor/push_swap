@@ -58,7 +58,7 @@ void ft_run_rr(pile **a, pile **b, pile *high)
     if (high->next == NULL && high->content)
     {    
          reverse_rotate(b, 'b');
-       // push_pile(b, a, 'a');
+         push_pile(b, a, 'a');
       //  printf("FINISH\n");
     }
     //reverse_rotate(b, 'b');
