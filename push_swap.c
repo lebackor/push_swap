@@ -25,7 +25,7 @@ int main(int ac, char **av)
             swap_x(&a, 'a');
     }
   // clean_a(&a, &b);
-   // print_liste(a);
+    print_liste(a);
    // print_liste(b);
 }
 

@@ -40,31 +40,44 @@ void clean_a(pile **a, pile **b)
 void begin_median(pile **a, pile **b)
 {
    char **str;
-//   (void) **b;
-   int i = 0;
-//int j = -1;
+   (void) **b;
+   int i;
+   int j;
+   
+   j = 0;
    str = ft_put_tab(a);
   //  while (str[++j])
     //  printf("%s ", str[j]);
    i = trie_tab(str, a);
+   //printf("%d %d",i , (*a)->content);
   // while (str[++j])
     //  printf("%s ", str[j]);
    if ((*a)->content == i)
    {
      // push_pile(a, b, 'b');
       rotate(a, 'a');
-     // printf("e");
+  //    printf("e");
       free(str);
       return ;
    }
+  // print_liste(*a);
+   while (j < ft_strlenlist(a))
+   {
+      if ((*a)->content < i)
+         push_pile(a, b, 'b');
+      else if ((*a)->content >= i)
+         rotate(a,  'a');
+     // printf("%d %d\n",i , (*a)->content);
+      j++;
+   }/*
    while ((*a)->content != i)
    {
       if ((*a)->content < i)
          push_pile(a, b, 'b');
       else if ((*a)->content > i)
          rotate(a,  'a');
-   }
-   free(str);
+   }*/
+  free(str);
 }
 
 int trie_tab(char **str, pile **a)
