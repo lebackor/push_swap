@@ -51,14 +51,14 @@ void ft_run_r(pile **a,pile **b, pile *high)
 void ft_run_rr(pile **a, pile **b, pile *high)
 {    
     pile *tmp;
-
+    (void) **a;
     tmp = high;
     while (tmp->next && tmp != high)
         reverse_rotate(b, 'b');
     if (high->next == NULL && high->content)
     {    
-        reverse_rotate(b, 'b');
-        push_pile(b, a, 'a');
+         reverse_rotate(b, 'b');
+       // push_pile(b, a, 'a');
       //  printf("FINISH\n");
     }
     //reverse_rotate(b, 'b');

@@ -26,9 +26,9 @@ int main(int ac, char **av)
             swap_x(&a, 'a');
     }
   // clean_a(&a, &b);
- //   print_liste(a);
-  //  if (is_tried(&a))
-    //    printf("TRIED");
+    print_liste(a);
+    if (is_tried(&a))
+        printf("TRIED");
 }
 
 int is_tried(pile **a)
