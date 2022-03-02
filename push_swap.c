@@ -3,6 +3,7 @@
 void    print_liste(pile *test);
 int ft_strlenlist(pile **a);
 int    fill_list(int ac, char **av, pile **a);
+int is_tried(pile **a);
 // VOIR TEST 7 8 LOOP CA SEGFAULT JSP PK
 int main(int ac, char **av)
 {
@@ -25,8 +26,25 @@ int main(int ac, char **av)
             swap_x(&a, 'a');
     }
   // clean_a(&a, &b);
-    print_liste(a);
-   // print_liste(b);
+ //   print_liste(a);
+  //  if (is_tried(&a))
+    //    printf("TRIED");
+}
+
+int is_tried(pile **a)
+{
+    pile *tmp;
+    
+    tmp = *a;
+
+    while (tmp->next)
+    {
+        if (tmp->content > tmp->next->content)
+            return (0);
+        else
+            tmp = tmp->next;
+    }
+    return 1;
 }
 
 int    fill_list(int ac, char **av, pile **a)

@@ -33,6 +33,7 @@ void list_run(pile **a, pile **b, pile *high)
         ft_run_r(a, b, high);
     else
         ft_run_rr(a, b, high);
+    return ;
 
 }
 
@@ -51,14 +52,17 @@ void ft_run_rr(pile **a, pile **b, pile *high)
 {    
     pile *tmp;
 
-    tmp = *b;
+    tmp = high;
     while (tmp->next && tmp != high)
         reverse_rotate(b, 'b');
-    if (high->next == NULL && high->content && tmp == high)
+    if (high->next == NULL && high->content)
     {    
         reverse_rotate(b, 'b');
         push_pile(b, a, 'a');
+      //  printf("FINISH\n");
     }
+    //reverse_rotate(b, 'b');
+   // push_pile(b, a, 'a');
 }
 
 int list_begin(pile **a, pile *high)
@@ -71,6 +75,8 @@ int list_begin(pile **a, pile *high)
     tmp = *a;
     while (tmp->next && tmp != high)
     {
+        if (tmp->content == high->content)
+            return (i);
         tmp = tmp->next;
         i++;
     }
@@ -87,6 +93,7 @@ int list_end(pile *high)
     tmp = high;
     while (tmp->next)
     {
+        
         tmp = tmp->next;
         i++;
     }
@@ -101,16 +108,8 @@ void    init_algo(pile **a, pile **b)
    tmp = *a;
    (void) *tmp;
     clean_a(a, b);
- while (ft_strlenlist(b) > 1)  
+    while (ft_strlenlist(b) > 1)  
         find_in_b_max(a, b);
-    push_pile(b, a, 'a');
-    /*while (tmp->next)
-    {
-        if (tmp->content < tmp->next->content)
-            tmp = tmp->next;
-        else if (tmp->content > tmp->next->content)
-            swap_x(&tmp);
-    }*/
     if ((*b))
         push_pile(b, a, 'a');
 }

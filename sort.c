@@ -35,7 +35,8 @@ void clean_a(pile **a, pile **b)
   
   while (ft_strlenlist(a) > 2)
       begin_median(a, b);
-    // begin_median(a, b);
+   if ((*a)->content > (*a)->next->content)
+      swap_x(a, 'a');
 }
 void begin_median(pile **a, pile **b)
 {
@@ -49,7 +50,7 @@ void begin_median(pile **a, pile **b)
   //  while (str[++j])
     //  printf("%s ", str[j]);
    i = trie_tab(str, a);
-   //printf("%d %d",i , (*a)->content);
+  // printf("S %d\n",i);
   // while (str[++j])
     //  printf("%s ", str[j]);
    if ((*a)->content == i)
@@ -60,13 +61,16 @@ void begin_median(pile **a, pile **b)
       free(str);
       return ;
    }
-  // print_liste(*a);
+   //print_liste(*a);
+   //ft_printf("%d", ft_strlenlist(a));
    while (j < ft_strlenlist(a))
    {
       if ((*a)->content < i)
          push_pile(a, b, 'b');
-      else if ((*a)->content >= i)
+      else
          rotate(a,  'a');
+     // else if ((*a)->content >= i)
+       //  rotate(a,  'a');
      // printf("%d %d\n",i , (*a)->content);
       j++;
    }/*
