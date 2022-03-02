@@ -19,7 +19,7 @@ char **ft_put_tab(pile **a)
       i++;
       //printf("%d\n", i);
    }
-   if (tmp->next == NULL && tmp->content >= 0 )
+   if ((tmp->content && tmp->next == NULL) ||(tmp->next == NULL && tmp->content == 0))
      { 
       str[i] = ft_itoa(tmp->content);
       str[++i] = '\0';
@@ -40,6 +40,7 @@ void clean_a(pile **a, pile **b)
 void begin_median(pile **a, pile **b)
 {
    char **str;
+//   (void) **b;
    int i = 0;
 //int j = -1;
    str = ft_put_tab(a);
