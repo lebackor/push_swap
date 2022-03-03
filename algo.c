@@ -26,10 +26,10 @@ void list_run(pile **a, pile **b, pile *high)
     int r;
     int rr;
 
-    r = list_begin(a, high);
+    r = list_begin(b, high);
     rr = list_end(high);
   //  printf("// r =%d, rr =%d//", r, rr);
-    if (r < rr)
+    if (r <= rr)
         ft_run_r(a, b, high);
     else
         ft_run_rr(a, b, high);
@@ -52,17 +52,20 @@ void ft_run_rr(pile **a, pile **b, pile *high)
 {    
     pile *tmp;
     (void) **a;
-    tmp = high;
-    while (tmp->next && tmp != high)
+
+    tmp = *b;
+   // high = find_higher_nb(b);
+    while (tmp != high && tmp->next)
+      {  
+        tmp = *b;
+        if (tmp == high)
+        {
+          push_pile(b, a, 'a');
+          return ;
+        }
         reverse_rotate(b, 'b');
-    if (high->next == NULL && high->content)
-    {    
-         reverse_rotate(b, 'b');
-         push_pile(b, a, 'a');
-      //  printf("FINISH\n");
-    }
-    //reverse_rotate(b, 'b');
-   // push_pile(b, a, 'a');
+  
+      }      
 }
 
 int list_begin(pile **a, pile *high)
@@ -119,6 +122,7 @@ void find_in_b_max(pile **a, pile **b)
     pile *tmp;
 
     tmp = find_higher_nb(b);
+   // printf("%d", tmp->content);
     list_run(a, b, tmp);
 }
 

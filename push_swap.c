@@ -25,8 +25,8 @@ int main(int ac, char **av)
         if (a->content > a->next->content)
             swap_x(&a, 'a');
     }
-  // clean_a(&a, &b);
-  //  print_liste(a);
+// clean_a(&a, &b);
+//    print_liste(a);
    // if (is_tried(&a))
      //   printf("TRIED");
 }

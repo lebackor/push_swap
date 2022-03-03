@@ -1,6 +1,7 @@
 #include "push_swap.h"
 
 int trie_tab(char **str, pile **a);
+void split_b(pile **b);
 
 char **ft_put_tab(pile **a)
 {
@@ -37,6 +38,7 @@ void clean_a(pile **a, pile **b)
       begin_median(a, b);
    if ((*a)->content > (*a)->next->content)
       swap_x(a, 'a');
+ // split_b(b);
 }
 void begin_median(pile **a, pile **b)
 {
@@ -47,41 +49,47 @@ void begin_median(pile **a, pile **b)
    
    j = 0;
    str = ft_put_tab(a);
-  //  while (str[++j])
-    //  printf("%s ", str[j]);
    i = trie_tab(str, a);
-  // printf("S %d\n",i);
-  // while (str[++j])
-    //  printf("%s ", str[j]);
-  //printf("%d\n", ft_strlenlist(a));
    if ((*a)->content == i)
    {
-     // push_pile(a, b, 'b');
       rotate(a, 'a');
-  //    printf("e");
       free(str);
       return ;
    }
-   //print_liste(*a);
-   //ft_printf("%d", ft_strlenlist(a));
    while (j < ft_strlenlist(a))
    {
       if ((*a)->content < i)
          push_pile(a, b, 'b');
       else
          rotate(a,  'a');
-     // else if ((*a)->content >= i)
-       //  rotate(a,  'a');
-     // printf("%d %d\n",i , (*a)->content);
       j++;
-   }/*
-   while ((*a)->content != i)
+   }
+  free(str);
+}
+
+void split_b(pile **b)
+{
+  char **str;
+   int i;
+   int j;
+   
+   j = 0;
+   str = ft_put_tab(b);
+   i = trie_tab(str, b);
+   if ((*b)->content == i)
    {
-      if ((*a)->content < i)
-         push_pile(a, b, 'b');
-      else if ((*a)->content > i)
-         rotate(a,  'a');
-   }*/
+      rotate(b, 'b');
+      free(str);
+      return ;
+   }
+   while (j < ft_strlenlist(b))
+   {
+      if ((*b)->content < i)
+         return ;
+      else
+         rotate(b,  'b');
+      j++;
+   }
   free(str);
 }
 
