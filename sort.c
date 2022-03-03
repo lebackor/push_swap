@@ -118,5 +118,5 @@ int trie_tab(char **str, pile **a)
          j--;
       }
    }
-   return (ft_atoi(str[(ft_strlenlist(a)) / 2]));
+   return (ft_atoi(str[(ft_strlenlist(a)) / 3]));
 }
