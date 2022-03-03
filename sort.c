@@ -118,5 +118,11 @@ int trie_tab(char **str, pile **a)
          j--;
       }
    }
-   return (ft_atoi(str[(ft_strlenlist(a)) / 3]));
+ /* if (ft_strlenlist(a) < 8)  
+    return (ft_atoi(str[(ft_strlenlist(a)) / 2]));
+  else*/
+  if (ft_strlenlist(a) > 8)   
+    return (ft_atoi(str[(ft_strlenlist(a)) / 7]));
+  else
+    return (ft_atoi(str[(ft_strlenlist(a)) / 3]));
 }
