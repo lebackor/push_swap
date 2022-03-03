@@ -15,10 +15,8 @@ char **ft_put_tab(pile **a)
    while (tmp->next)
    {
       str[i] = ft_itoa(tmp->content);
-   //   printf("%s\n", str[i]);
       tmp = tmp->next;
       i++;
-      //printf("%d\n", i);
    }
    if ((tmp->content && tmp->next == NULL) ||(tmp->next == NULL && tmp->content == 0))
      { 
@@ -38,7 +36,6 @@ void clean_a(pile **a, pile **b)
       begin_median(a, b);
    if ((*a)->content > (*a)->next->content)
       swap_x(a, 'a');
- // split_b(b);
 }
 void begin_median(pile **a, pile **b)
 {
@@ -62,32 +59,6 @@ void begin_median(pile **a, pile **b)
          push_pile(a, b, 'b');
       else
          rotate(a,  'a');
-      j++;
-   }
-  free(str);
-}
-
-void split_b(pile **b)
-{
-  char **str;
-   int i;
-   int j;
-   
-   j = 0;
-   str = ft_put_tab(b);
-   i = trie_tab(str, b);
-   if ((*b)->content == i)
-   {
-      rotate(b, 'b');
-      free(str);
-      return ;
-   }
-   while (j < ft_strlenlist(b))
-   {
-      if ((*b)->content < i)
-         return ;
-      else
-         rotate(b,  'b');
       j++;
    }
   free(str);
@@ -118,10 +89,7 @@ int trie_tab(char **str, pile **a)
          j--;
       }
    }
- /* if (ft_strlenlist(a) < 8)  
-    return (ft_atoi(str[(ft_strlenlist(a)) / 2]));
-  else*/
-  if (ft_strlenlist(a) > 8)   
+  if (ft_strlenlist(a) > 100)   
     return (ft_atoi(str[(ft_strlenlist(a)) / 7]));
   else
     return (ft_atoi(str[(ft_strlenlist(a)) / 3]));

@@ -7,17 +7,13 @@ int is_tried(pile **a);
 // VOIR TEST 7 8 LOOP CA SEGFAULT JSP PK
 int main(int ac, char **av)
 {
-    //int i;
-  //  long long nb;
     pile *a;
     pile *b;
- //   (void) *b;
-  //  i = 0;
     a = NULL;
     b = NULL;
+  
     if (ac == 1 || !check_notnb(av, ac) || !fill_list(ac, av, &a))
         return (ft_printf("Error\n"));
-    //printf("%d", ft_strlenlist(&a));
     if (ft_strlenlist(&a) > 2)    
       init_algo(&a, &b);
     else
@@ -25,26 +21,7 @@ int main(int ac, char **av)
         if (a->content > a->next->content)
             swap_x(&a, 'a');
     }
-// clean_a(&a, &b);
-//    print_liste(a);
-   // if (is_tried(&a))
-     //   printf("TRIED");
-}
-
-int is_tried(pile **a)
-{
-    pile *tmp;
-    
-    tmp = *a;
-
-    while (tmp->next)
-    {
-        if (tmp->content > tmp->next->content)
-            return (0);
-        else
-            tmp = tmp->next;
-    }
-    return 1;
+  print_liste(a);
 }
 
 int    fill_list(int ac, char **av, pile **a)
@@ -64,7 +41,21 @@ int    fill_list(int ac, char **av, pile **a)
     }
     return (1);
 }
+int is_tried(pile **a)
+{
+    pile *tmp;
+    
+    tmp = *a;
 
+    while (tmp->next)
+    {
+        if (tmp->content > tmp->next->content)
+            return (0);
+        else
+            tmp = tmp->next;
+    }
+    return 1;
+}
 int ft_strlenlist(pile **a)
 {
     int i;
@@ -81,9 +72,9 @@ int ft_strlenlist(pile **a)
     }
     if (tmp->next == NULL && (tmp->content || tmp->content == 0))
         i++;
-  //  printf("%d", i);
     return (i);
 }
+
 void    print_liste(pile *test)
 {
     while (test->next)
@@ -93,3 +84,19 @@ void    print_liste(pile *test)
     }
     printf("%d \n", test->content);
 }
+/*
+int is_tried(pile **a)
+{
+    pile *tmp;
+    
+    tmp = *a;
+
+    while (tmp->next)
+    {
+        if (tmp->content > tmp->next->content)
+            return (0);
+        else
+            tmp = tmp->next;
+    }
+    return 1;
+}*/

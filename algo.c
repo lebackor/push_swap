@@ -1,25 +1,6 @@
 #include "push_swap.h"
 
-//void    put_fr_in_one(pile **a);
-//pile    *find_higher_nb(pile **a);
-//void list_run(pile **a, pile **b, pile *high);
-void ft_run_r(pile **a,pile **b, pile *high);
-void ft_run_rr(pile **a, pile **b, pile *high);
-int list_begin(pile **a, pile *high);
-int list_end(pile *high);
-void find_in_b_max(pile **a, pile **b);
-/*void    search_pile_b(pile **a, pile **b)
-{
-    pile    *tmp;
-    pile    *tmp2;
 
-    tmp = *a;
-    tmp2 = *b;
-    (void) *tmp;
-    tmp2 = find_higher_nb(b);
-   // printf("*%d*\n", tmp2->content);
-    list_run(a, b, tmp2);
-}*/
 
 void list_run(pile **a, pile **b, pile *high)
 {
@@ -28,7 +9,6 @@ void list_run(pile **a, pile **b, pile *high)
 
     r = list_begin(b, high);
     rr = list_end(high);
-  //  printf("// r =%d, rr =%d//", r, rr);
     if (r <= rr)
         ft_run_r(a, b, high);
     else
@@ -54,7 +34,6 @@ void ft_run_rr(pile **a, pile **b, pile *high)
     (void) **a;
 
     tmp = *b;
-   // high = find_higher_nb(b);
     while (tmp != high && tmp->next)
       {  
         tmp = *b;
@@ -103,18 +82,36 @@ int list_end(pile *high)
     return (i);
 }
 
+
+void algo_3(pile **a)
+{
+    while (!is_tried(a))
+    {
+      if ((*a)->content > (*a)->next->content)
+          swap_x(a, 'a');
+      else if ((*a)->next->content > (*a)->next->next->content)
+         reverse_rotate(a, 'a');
+    }
+}
+
 void    init_algo(pile **a, pile **b)
 {
     pile    *tmp;
-   // pile    *lst;
 
    tmp = *a;
-   (void) *tmp;
-    clean_a(a, b);
-    while (ft_strlenlist(b) > 1)  
-        find_in_b_max(a, b);
-    if ((*b))
-        push_pile(b, a, 'a');
+  (void) *tmp;
+  if (ft_strlenlist(a) == 3)
+      algo_3(a);
+  else if (ft_strlenlist(a) < 10)
+      algo_5(a, b);
+  else
+  {
+      clean_a(a, b);
+      while (ft_strlenlist(b) > 1)  
+          find_in_b_max(a, b);
+      if ((*b))
+          push_pile(b, a, 'a');
+    }
 }
 
 void find_in_b_max(pile **a, pile **b)
@@ -125,7 +122,6 @@ void find_in_b_max(pile **a, pile **b)
    // printf("%d", tmp->content);
     list_run(a, b, tmp);
 }
-
 
 pile    *find_higher_nb(pile **a)
 {

@@ -6,7 +6,7 @@ SRCS	=	check_errors.c\
 			push_swap.c\
 			algo.c\
 			sort.c\
-			utils.c\
+      algo5.c\
 			libft/ft_printf.c\
 			libft/ft_strlen.c\
 			libft/ft_atoi.c\
@@ -18,8 +18,6 @@ SRCS	=	check_errors.c\
 			libft/ft_itoa.c\
 			libft/ft_calloc.c\
 			libft/ft_memset.c\
-			libft/ft_strcmp.c\
-			libft/ft_sort_int_tab.c\
 
 OBJS = ${SRCS:.c=.o}
 

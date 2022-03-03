@@ -34,5 +34,20 @@ int    *list_on_tab(pile **a);
 char **ft_put_tab(pile **a);
 void clean_a(pile **a, pile **b);
 void	ft_put_begin(pile **a, pile **b);
+int is_tried(pile **a);
+void algo_3(pile **a);
+int    fill_list(int ac, char **av, pile **a);
+void ft_run_r(pile **a,pile **b, pile *high);
+void ft_run_rr(pile **a, pile **b, pile *high);
+int list_begin(pile **a, pile *high);
+int list_end(pile *high);
+void find_in_b_max(pile **a, pile **b);
+pile    *find_lowest_nb(pile **a);
+void list_run_5(pile **a, pile **b, pile *high);
+//int list_end_5(pile *high);
+//int list_begin_5(pile **a, pile *high);
+void ft_run_rr_5(pile **a, pile **b, pile *high);
+void ft_run_r_5(pile **a,pile **b, pile *high);
+void algo_5(pile **a, pile **b);
 
 #endif
