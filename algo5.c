@@ -17,25 +17,26 @@ void list_run_5(pile **a, pile **b, pile *high)
 
 void algo_5(pile **a, pile **b)
 {
-  pile *tmp;
-  pile *low;
+    //pile *tmp;
+    pile *low;
+    (void) **b;
+   // (void) **a;
+    //tmp = *a;
   
-  tmp = *a;
- // low = find_lowest_nb(a);
-  //if (tmp == low)
-    //  push_pile(a, b, 'b');
- // printf("%d ", low->content);
+  (void ) *low;
   while (ft_strlenlist(a) > 2)
-    {
-      low = find_lowest_nb(a);
-      if (tmp->content == low->content)
-        push_pile(a, b, 'b');
-      else
-        rotate(a, 'a');  
-    }
+  {
+    low = find_lowest_nb(a);
+    list_run_5(a, b, low);
+  }
+  if ((*a)->content > (*a)->next->content)
+        swap_x(a, 'a');
+while (ft_strlenlist(b))
+       push_pile(b, a, 'a');
 
-  
-}pile    *find_lowest_nb(pile **a)
+}
+
+pile    *find_lowest_nb(pile **a)
 {
     pile *tmp;
     pile *f;  
@@ -53,11 +54,12 @@ void algo_5(pile **a, pile **b)
  // tmp->next = NULL;
     return tmp;
 }
+
 void ft_run_r_5(pile **a,pile **b, pile *high)
 {
     pile *tmp;
 
-    tmp = *b;
+    tmp = *a;
     while (tmp->next && tmp != high)
         rotate(a, 'a');
     if (tmp == high)
@@ -69,10 +71,10 @@ void ft_run_rr_5(pile **a, pile **b, pile *high)
     pile *tmp;
     (void) **a;
 
-    tmp = *b;
+    tmp = *a;
     while (tmp != high && tmp->next)
       {  
-        tmp = *b;
+        tmp = *a;
         if (tmp == high)
         {
           push_pile(a,  b, 'b');

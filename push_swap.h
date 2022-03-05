@@ -49,5 +49,5 @@ void list_run_5(pile **a, pile **b, pile *high);
 void ft_run_rr_5(pile **a, pile **b, pile *high);
 void ft_run_r_5(pile **a,pile **b, pile *high);
 void algo_5(pile **a, pile **b);
-
+void algo_3(pile **a);
 #endif

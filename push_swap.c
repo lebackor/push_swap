@@ -21,7 +21,8 @@ int main(int ac, char **av)
         if (a->content > a->next->content)
             swap_x(&a, 'a');
     }
-  print_liste(a);
+ // print_liste(a);
+  //print_liste(b);
 }
 
 int    fill_list(int ac, char **av, pile **a)

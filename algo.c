@@ -102,7 +102,7 @@ void    init_algo(pile **a, pile **b)
   (void) *tmp;
   if (ft_strlenlist(a) == 3)
       algo_3(a);
-  else if (ft_strlenlist(a) < 10)
+  else if (ft_strlenlist(a) < 10 )
       algo_5(a, b);
   else
   {
