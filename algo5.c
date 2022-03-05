@@ -24,13 +24,14 @@ void algo_5(pile **a, pile **b)
     //tmp = *a;
   
   (void ) *low;
-  while (ft_strlenlist(a) > 2)
+  while (ft_strlenlist(a) > 3)
   {
     low = find_lowest_nb(a);
     list_run_5(a, b, low);
   }
-  if ((*a)->content > (*a)->next->content)
-        swap_x(a, 'a');
+ /* if ((*a)->content > (*a)->next->content)
+        swap_x(a, 'a');*/
+    algo_3(a);
 while (ft_strlenlist(b))
        push_pile(b, a, 'a');
 
