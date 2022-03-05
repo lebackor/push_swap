@@ -14,7 +14,7 @@ int main(int ac, char **av)
   
     if (ac == 1 || !check_notnb(av, ac) || !fill_list(ac, av, &a))
         return (ft_printf("Error\n"));
-    if (is_tried(&a))
+    if (is_tried(&a) || ft_strlenlist(&a) < 2)
         return (0);
     if (ft_strlenlist(&a) > 2)    
       init_algo(&a, &b);
