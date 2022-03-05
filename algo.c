@@ -55,6 +55,7 @@ int list_begin(pile **a, pile *high)
 
     i = 0;
     tmp = *a;
+
     while (tmp->next && tmp != high)
     {
         if (tmp->content == high->content)
@@ -62,7 +63,7 @@ int list_begin(pile **a, pile *high)
         tmp = tmp->next;
         i++;
     }
-    if (tmp->next == NULL)
+    if (tmp->next == NULL && tmp != high)
         return (0);
     return (i);
 }
@@ -102,7 +103,7 @@ void    init_algo(pile **a, pile **b)
   (void) *tmp;
   if (ft_strlenlist(a) == 3)
       algo_3(a);
-  else if (ft_strlenlist(a) < 10 )
+  else if (ft_strlenlist(a) < 10)
       algo_5(a, b);
   else
   {

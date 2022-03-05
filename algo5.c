@@ -27,6 +27,7 @@ void algo_5(pile **a, pile **b)
   while (ft_strlenlist(a) > 3)
   {
     low = find_lowest_nb(a);
+   
     list_run_5(a, b, low);
   }
  /* if ((*a)->content > (*a)->next->content)
