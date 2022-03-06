@@ -44,8 +44,6 @@ int list_end(pile *high);
 void find_in_b_max(pile **a, pile **b);
 pile    *find_lowest_nb(pile **a);
 void list_run_5(pile **a, pile **b, pile *high);
-//int list_end_5(pile *high);
-//int list_begin_5(pile **a, pile *high);
 void ft_run_rr_5(pile **a, pile **b, pile *high);
 void ft_run_r_5(pile **a,pile **b, pile *high);
 void algo_5(pile **a, pile **b);
