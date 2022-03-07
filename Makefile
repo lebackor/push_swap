@@ -8,32 +8,32 @@ SRCS	=	check_errors.c\
 			sort.c\
       		algo5.c\
 			utils.c\
-			libft/ft_printf.c\
-			libft/ft_strlen.c\
-			libft/ft_atoi.c\
-			libft/ft_putstr.c\
-			libft/ft_printf_utils.c\
-			libft/ft_putstr.c\
-			libft/ft_putnbr.c\
-			libft/ft_putchar.c\
-			libft/ft_itoa.c\
-			libft/ft_calloc.c\
-			libft/ft_memset.c\
 
 OBJS = ${SRCS:.c=.o}
 
 CC	=	gcc
 
-FLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra
+LDFLAGS = -L libft -lft
 
 NAME = push_swap
 
-.c.o:
-		${CC} ${FLAGS} -I includes -c $< -o ${<:.c=.o}
+LIBFT = libft/libft.a
 
 all : ${NAME}
 
-${NAME} :	${OBJS} $(NAME)
+${NAME} :	${OBJS} $(LIBFT)
+	$(MAKE) $(LIBFT)
+	$(CC) $(CFLAGS) $(OBJS) $(LDFLAGS) -o $@
+
+%.o: %.c
+	${CC} ${CFLAGS} -I includes -c $< -o ${<:.c=.o}
+
+
+$(LIBFT)	:
+	make -C libft
+
+
 
 clean :
 		rm -f ${OBJS}
