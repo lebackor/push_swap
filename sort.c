@@ -102,8 +102,31 @@ int	trie_tab(char **str, t_pile **a)
 
 int	ft_return(t_pile **a, char **str)
 {
+	int i;
+
 	if (ft_strlenlist(a) > 100)
-		return (ft_atoi(str[(ft_strlenlist(a)) / 7]));
+	{
+		i = ft_atoi(str[(ft_strlenlist(a)) / 7]);
+		ft_free_table(str);
+	}
 	else
-		return (ft_atoi(str[(ft_strlenlist(a)) / 3]));
+	{
+		i = ft_atoi(str[(ft_strlenlist(a)) / 3]);
+		ft_free_table(str);
+	}
+	return (i);
+}
+
+char	**ft_free_table(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
+	return (NULL);
 }

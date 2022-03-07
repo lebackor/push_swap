@@ -36,10 +36,14 @@ void	swap_ss(t_pile **a, t_pile **b, char c)
 
 void	push_t_pile(t_pile **stack1, t_pile **stack2, char c)
 {
+	t_pile	*tmp;
+
+	tmp = *stack1;
 	if (!*stack2)
 	{
 		*stack2 = create_liste((*stack1)->content);
 		(*stack1) = (*stack1)->next;
+		free(tmp);
 		if (c == 'a')
 			ft_printf("pa\n");
 		else if (c == 'b')
@@ -47,6 +51,7 @@ void	push_t_pile(t_pile **stack1, t_pile **stack2, char c)
 		return ;
 	}
 	ft_put_begin(stack1, stack2);
+	free(tmp);
 	if (c == 'a')
 		ft_printf("pa\n");
 	else if (c == 'b')

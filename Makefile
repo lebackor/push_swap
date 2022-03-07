@@ -13,7 +13,7 @@ OBJS = ${SRCS:.c=.o}
 
 CC	=	gcc
 
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 LDFLAGS = -L libft -lft
 
 NAME = push_swap

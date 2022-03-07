@@ -62,4 +62,6 @@ void	list_run(t_pile **a, t_pile **b, t_pile *high);
 int		trie_tab(char **str, t_pile **a);
 void	split_b(t_pile **b);
 int		ft_return(t_pile **a, char **str);
+int		ft_degage(t_pile **a);
+char	**ft_free_table(char **str);
 #endif

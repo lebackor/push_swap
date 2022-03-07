@@ -22,7 +22,7 @@ int	main(int ac, char **av)
 	if (ac == 1 || !check_notnb(av, ac) || !fill_list(ac, av, &a))
 		return (ft_printf("Error\n"));
 	if (is_tried(&a) || ft_strlenlist(&a) < 2)
-		return (0);
+		return (ft_degage(&a));
 	if (ft_strlenlist(&a) > 2)
 		init_algo(&a, &b);
 	else
@@ -30,6 +30,7 @@ int	main(int ac, char **av)
 		if (a->content > a->next->content)
 			swap_x(&a, 'a');
 	}
+	return (ft_degage(&a));
 }
 
 int	fill_list(int ac, char **av, t_pile **a)
@@ -84,28 +85,20 @@ int	ft_strlenlist(t_pile **a)
 	return (i);
 }
 
-/*
-void    print_liste(t_pile *test)
+int	ft_degage(t_pile **a)
 {
-	while (test->next)
+	t_pile *tmp;
+	
+	tmp = *a;
+
+	if (*a)
 	{
-		printf("%d | ", test->content);
-		test = test->next;
+		while ((*a))
+		{
+			tmp = (*a)->next;
+			free(*a);
+			(*a) = (tmp);
+		}
 	}
-	printf("%d \n", test->content);
+	return (1);
 }
- int is_tried(t_pile **a)
-   {
-   t_pile *tmp;
-
-   tmp = *a;
-
-   while (tmp->next)
-   {
-   if (tmp->content > tmp->next->content)
-   return (0);
-   else
-   tmp = tmp->next;
-   }
-   return 1;
-   }*/
