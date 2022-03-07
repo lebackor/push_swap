@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lebackor <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/07 18:36:56 by lebackor          #+#    #+#             */
+/*   Updated: 2022/03/07 18:41:19 by lebackor         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	main(int ac, char **av)
 {
-	pile	*a;
-	pile	*b;
+	t_pile	*a;
+	t_pile	*b;
 
 	a = NULL;
 	b = NULL;
@@ -20,9 +32,9 @@ int	main(int ac, char **av)
 	}
 }
 
-int	fill_list(int ac, char **av, pile **a)
+int	fill_list(int ac, char **av, t_pile **a)
 {
-		int		i;
+	int			i;
 	long long	nb;
 
 	i = 0;
@@ -38,9 +50,9 @@ int	fill_list(int ac, char **av, pile **a)
 	return (1);
 }
 
-int	is_tried(pile **a)
+int	is_tried(t_pile **a)
 {
-	pile	*tmp;
+	t_pile	*tmp;
 
 	tmp = *a;
 	while (tmp->next)
@@ -53,10 +65,10 @@ int	is_tried(pile **a)
 	return (1);
 }
 
-int	ft_strlenlist(pile **a)
+int	ft_strlenlist(t_pile **a)
 {
 	int		i;
-	pile		*tmp;
+	t_pile	*tmp;
 
 	i = 0;
 	if (!(*a))
@@ -73,7 +85,7 @@ int	ft_strlenlist(pile **a)
 }
 
 /*
-void    print_liste(pile *test)
+void    print_liste(t_pile *test)
 {
 	while (test->next)
 	{
@@ -82,9 +94,9 @@ void    print_liste(pile *test)
 	}
 	printf("%d \n", test->content);
 }
- int is_tried(pile **a)
+ int is_tried(t_pile **a)
    {
-   pile *tmp;
+   t_pile *tmp;
 
    tmp = *a;
 

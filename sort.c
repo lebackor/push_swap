@@ -1,13 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lebackor <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/07 17:34:13 by lebackor          #+#    #+#             */
+/*   Updated: 2022/03/07 17:46:29 by lebackor         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-int trie_tab(char **str, pile **a);
-void split_b(pile **b);
-
-char **ft_put_tab(pile **a)
+char	**ft_put_tab(t_pile **a)
 {
-	char **str;
-	pile *tmp;
-	int i;
+	char		**str;
+	t_pile		*tmp;
+	int			i;
 
 	tmp = *a;
 	i = 0;
@@ -18,31 +27,30 @@ char **ft_put_tab(pile **a)
 		tmp = tmp->next;
 		i++;
 	}
-	if ((tmp->content && tmp->next == NULL) ||(tmp->next == NULL && tmp->content == 0))
-	{ 
+	if ((tmp->content && tmp->next == NULL)
+		|| (tmp->next == NULL && tmp->content == 0))
+	{
 		str[i] = ft_itoa(tmp->content);
 		str[++i] = '\0';
 		return (str);
 	}
-
 	str[++i] = '\0';
 	return (str);
 }
 
-void clean_a(pile **a, pile **b)
+void	clean_a(t_pile **a, t_pile **b)
 {
-
 	while (ft_strlenlist(a) > 2)
 		begin_median(a, b);
 	if ((*a)->content > (*a)->next->content)
 		swap_x(a, 'a');
 }
-void begin_median(pile **a, pile **b)
+
+void	begin_median(t_pile **a, t_pile **b)
 {
-	char **str;
-	(void) **b;
-	int i;
-	int j;
+	char		**str;
+	int			i;
+	int			j;
 
 	j = 0;
 	str = ft_put_tab(a);
@@ -56,19 +64,19 @@ void begin_median(pile **a, pile **b)
 	while (j < ft_strlenlist(a))
 	{
 		if ((*a)->content < i)
-			push_pile(a, b, 'b');
+			push_t_pile(a, b, 'b');
 		else
-			rotate(a,  'a');
+			rotate(a, 'a');
 		j++;
 	}
 	free(str);
 }
 
-int trie_tab(char **str, pile **a)
+int	trie_tab(char **str, t_pile **a)
 {
-	int i;
-	int j;
-	char *swp;
+	int			i;
+	int			j;
+	char		*swp;
 
 	i = 0;
 	j = ft_strlenlist(a) - 1;
@@ -89,7 +97,12 @@ int trie_tab(char **str, pile **a)
 			j--;
 		}
 	}
-	if (ft_strlenlist(a) > 100)   
+	return (ft_return(a, str));
+}
+
+int	ft_return(t_pile **a, char **str)
+{
+	if (ft_strlenlist(a) > 100)
 		return (ft_atoi(str[(ft_strlenlist(a)) / 7]));
 	else
 		return (ft_atoi(str[(ft_strlenlist(a)) / 3]));

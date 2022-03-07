@@ -1,90 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   algo.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lebackor <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/07 16:56:45 by lebackor          #+#    #+#             */
+/*   Updated: 2022/03/07 17:11:40 by lebackor         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-
-
-void list_run(pile **a, pile **b, pile *high)
-{
-	int r;
-	int rr;
-
-	r = list_begin(b, high);
-	rr = list_end(high);
-	if (r <= rr)
-		ft_run_r(a, b, high);
-	else
-		ft_run_rr(a, b, high);
-	return ;
-
-}
-
-void ft_run_r(pile **a,pile **b, pile *high)
-{
-	pile *tmp;
-
-	tmp = *b;
-	while (tmp->next && tmp != high)
-		rotate(b, 'b');
-	if (tmp == high)
-		push_pile(b, a, 'a');
-}
-
-void ft_run_rr(pile **a, pile **b, pile *high)
-{    
-	pile *tmp;
-	(void) **a;
-
-	tmp = *b;
-	while (tmp != high && tmp->next)
-	{  
-		tmp = *b;
-		if (tmp == high)
-		{
-			push_pile(b, a, 'a');
-			return ;
-		}
-		reverse_rotate(b, 'b');
-
-	}      
-}
-
-int list_begin(pile **a, pile *high)
-{
-
-	pile *tmp;
-	int i;
-
-	i = 0;
-	tmp = *a;
-
-	while (tmp->next && tmp != high)
-	{
-		if (tmp->content == high->content)
-			return (i);
-		tmp = tmp->next;
-		i++;
-	}
-	if (tmp->next == NULL && tmp != high)
-		return (0);
-	return (i);
-}
-int list_end(pile *high)
-{
-	pile *tmp;
-	int i;
-
-	i = 0;
-	tmp = high;
-	while (tmp->next)
-	{
-
-		tmp = tmp->next;
-		i++;
-	}
-	return (i);
-}
-
-
-void algo_3(pile **a)
+void	algo_3(t_pile **a)
 {
 	while (!is_tried(a))
 	{
@@ -95,12 +23,8 @@ void algo_3(pile **a)
 	}
 }
 
-void    init_algo(pile **a, pile **b)
+void	init_algo(t_pile **a, t_pile **b)
 {
-	pile    *tmp;
-
-	tmp = *a;
-	(void) *tmp;
 	if (ft_strlenlist(a) == 3)
 		algo_3(a);
 	else if (ft_strlenlist(a) < 10)
@@ -108,26 +32,25 @@ void    init_algo(pile **a, pile **b)
 	else
 	{
 		clean_a(a, b);
-		while (ft_strlenlist(b) > 1)  
+		while (ft_strlenlist(b) > 1)
 			find_in_b_max(a, b);
 		if ((*b))
-			push_pile(b, a, 'a');
+			push_t_pile(b, a, 'a');
 	}
 }
 
-void find_in_b_max(pile **a, pile **b)
+void	find_in_b_max(t_pile **a, t_pile **b)
 {
-	pile *tmp;
+	t_pile	*tmp;
 
 	tmp = find_higher_nb(b);
-	// printf("%d", tmp->content);
 	list_run(a, b, tmp);
 }
 
-pile    *find_higher_nb(pile **a)
+t_pile	*find_higher_nb(t_pile **a)
 {
-	pile *tmp;
-	pile *f;  
+	t_pile	*tmp;
+	t_pile	*f;
 
 	f = *a;
 	tmp = (*a)->next;
@@ -139,6 +62,5 @@ pile    *find_higher_nb(pile **a)
 	}
 	if ((f)->content > tmp->content)
 		tmp = f;
-	// tmp->next = NULL;
-	return tmp;
+	return (tmp);
 }

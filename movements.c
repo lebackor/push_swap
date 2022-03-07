@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   movements.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lebackor <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/07 17:28:37 by lebackor          #+#    #+#             */
+/*   Updated: 2022/03/07 17:32:32 by lebackor         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void swap_x(pile **stack, char c)
+void	swap_x(t_pile **stack, char c)
 {
-	pile *t1;
-	pile *t2;
+	t_pile	*t1;
+	t_pile	*t2;
 
 	t1 = (*stack)->next;
 	t2 = *stack;
@@ -14,21 +26,16 @@ void swap_x(pile **stack, char c)
 		ft_printf("sa\n");
 	else if (c == 'b')
 		ft_printf("sb\n");
-
 }
 
-void    swap_ss(pile **a, pile **b, char c)
+void	swap_ss(t_pile **a, t_pile **b, char c)
 {
 	swap_x(*&a, c);
 	swap_x(*&b, c);
 }
 
-void push_pile(pile **stack1, pile **stack2, char c)
+void	push_t_pile(t_pile **stack1, t_pile **stack2, char c)
 {
-	// pile *tmp;
-
-	// tmp = *stack1;
-
 	if (!*stack2)
 	{
 		*stack2 = create_liste((*stack1)->content);
@@ -47,10 +54,10 @@ void push_pile(pile **stack1, pile **stack2, char c)
 	return ;
 }
 
-void    rotate(pile **stack, char c)
+void	rotate(t_pile **stack, char c)
 {
-	pile    *tmp;
-	pile    *tmp2;
+	t_pile	*tmp;
+	t_pile	*tmp2;
 
 	tmp = *stack;
 	tmp2 = *stack;
@@ -65,16 +72,10 @@ void    rotate(pile **stack, char c)
 		ft_printf("rb\n");
 }
 
-void    rotate_rr(pile **a, pile **b)
+void	reverse_rotate(t_pile **stack, char c)
 {
-	rotate(*&a, 'a');
-	rotate(*&b, 'b');
-}
-
-void    reverse_rotate(pile **stack, char c)
-{
-	pile *tmp;
-	pile *tmp2;
+	t_pile	*tmp;
+	t_pile	*tmp2;
 
 	tmp = *stack;
 	while (tmp->next->next)
@@ -87,11 +88,4 @@ void    reverse_rotate(pile **stack, char c)
 		ft_printf("rra\n");
 	else if (c == 'b')
 		ft_printf("rrb\n");
-}
-
-void    reverse_rotate_rr(pile **a, pile **b)
-{
-	reverse_rotate(*&a, 'a');
-	reverse_rotate(*&b , 'b');
-	ft_printf("rra\nrrb\n");
 }

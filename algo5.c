@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   algo5.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lebackor <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/07 16:44:38 by lebackor          #+#    #+#             */
+/*   Updated: 2022/03/07 16:56:29 by lebackor         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void list_run_5(pile **a, pile **b, pile *high)
+void	list_run_5(t_pile **a, t_pile **b, t_pile *high)
 {
-	int r;
-	int rr;
+	int	r;
+	int	rr;
 
 	r = list_begin(a, high);
 	rr = list_end(high);
@@ -12,36 +24,26 @@ void list_run_5(pile **a, pile **b, pile *high)
 	else
 		ft_run_rr_5(a, b, high);
 	return ;
-
 }
 
-void algo_5(pile **a, pile **b)
+void	algo_5(t_pile **a, t_pile **b)
 {
-	//pile *tmp;
-	pile *low;
-	(void) **b;
-	// (void) **a;
-	//tmp = *a;
+	t_pile	*low;
 
-	(void ) *low;
 	while (ft_strlenlist(a) > 3)
 	{
 		low = find_lowest_nb(a);
-
 		list_run_5(a, b, low);
 	}
-	/* if ((*a)->content > (*a)->next->content)
-	   swap_x(a, 'a');*/
 	algo_3(a);
 	while (ft_strlenlist(b))
-		push_pile(b, a, 'a');
-
+		push_t_pile(b, a, 'a');
 }
 
-pile    *find_lowest_nb(pile **a)
+t_pile	*find_lowest_nb(t_pile **a)
 {
-	pile *tmp;
-	pile *f;  
+	t_pile	*tmp;
+	t_pile	*f;
 
 	f = *a;
 	tmp = (*a)->next;
@@ -53,71 +55,33 @@ pile    *find_lowest_nb(pile **a)
 	}
 	if ((f)->content < tmp->content)
 		tmp = f;
-	// tmp->next = NULL;
-	return tmp;
+	return (tmp);
 }
 
-void ft_run_r_5(pile **a,pile **b, pile *high)
+void	ft_run_r_5(t_pile **a, t_pile **b, t_pile *high)
 {
-	pile *tmp;
+	t_pile	*tmp;
 
 	tmp = *a;
 	while (tmp->next && tmp != high)
 		rotate(a, 'a');
 	if (tmp == high)
-		push_pile(a, b, 'b');
+		push_t_pile(a, b, 'b');
 }
 
-void ft_run_rr_5(pile **a, pile **b, pile *high)
-{    
-	pile *tmp;
-	(void) **a;
+void	ft_run_rr_5(t_pile **a, t_pile **b, t_pile *high)
+{
+	t_pile	*tmp;
 
 	tmp = *a;
 	while (tmp != high && tmp->next)
-	{  
+	{
 		tmp = *a;
 		if (tmp == high)
 		{
-			push_pile(a,  b, 'b');
+			push_t_pile(a, b, 'b');
 			return ;
 		}
 		reverse_rotate(a, 'a');
-
-	}      
+	}
 }
-/*
-   int list_begin_5(pile **a, pile *high)
-   {
-
-   pile *tmp;
-   int i;
-
-   i = 0;
-   tmp = *a;
-   while (tmp->next && tmp != high)
-   {
-   if (tmp->content == high->content)
-   return (i);
-   tmp = tmp->next;
-   i++;
-   }
-   if (tmp->next == NULL)
-   return (0);
-   return (i);
-   }
-   int list_end_5(pile *high)
-   {
-   pile *tmp;
-   int i;
-
-   i = 0;
-   tmp = high;
-   while (tmp->next)
-   {
-
-   tmp = tmp->next;
-   i++;
-   }
-   return (i);
-   }*/
