@@ -87,4 +87,5 @@ int			ft_putstr(char *str);
 int			ft_putnbr(int nb);
 int			*ft_sort_int_tab(int *tab, int size);
 int			ft_strcmp(char *s1, char *s2);
+char		**ft_free_table(char **str);
 #endif

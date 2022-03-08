@@ -20,6 +20,8 @@ NAME = push_swap
 
 LIBFT = libft/libft.a
 
+CLEAN_FT	=	make fclean -C libft
+
 all : ${NAME}
 
 ${NAME} :	${OBJS} $(LIBFT)
@@ -34,9 +36,9 @@ $(LIBFT)	:
 	make -C libft
 
 
-
 clean :
-		rm -f ${OBJS}
+		rm -f ${OBJS} ${LIBFT} 
+		${CLEAN_FT}
 
 fclean :	clean
 			rm -f ${NAME}

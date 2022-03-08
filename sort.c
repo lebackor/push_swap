@@ -31,10 +31,10 @@ char	**ft_put_tab(t_pile **a)
 		|| (tmp->next == NULL && tmp->content == 0))
 	{
 		str[i] = ft_itoa(tmp->content);
-		str[++i] = '\0';
+		str[++i] = NULL;
 		return (str);
 	}
-	str[++i] = '\0';
+	str[++i] = NULL;
 	return (str);
 }
 
@@ -102,7 +102,7 @@ int	trie_tab(char **str, t_pile **a)
 
 int	ft_return(t_pile **a, char **str)
 {
-	int i;
+	int	i;
 
 	if (ft_strlenlist(a) > 100)
 	{
@@ -116,7 +116,7 @@ int	ft_return(t_pile **a, char **str)
 	}
 	return (i);
 }
-
+/*
 char	**ft_free_table(char **str)
 {
 	int	i;
@@ -129,4 +129,4 @@ char	**ft_free_table(char **str)
 	}
 	free(str);
 	return (NULL);
-}
+}*/

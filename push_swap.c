@@ -19,7 +19,9 @@ int	main(int ac, char **av)
 
 	a = NULL;
 	b = NULL;
-	if (ac == 1 || !check_notnb(av, ac) || !fill_list(ac, av, &a))
+	if (ac == 1)
+		return (1);
+	if (!check_notnb(av, ac) || !fill_list(ac, av, &a))
 		return (ft_printf("Error\n"));
 	if (is_tried(&a) || ft_strlenlist(&a) < 2)
 		return (ft_degage(&a));
@@ -87,10 +89,9 @@ int	ft_strlenlist(t_pile **a)
 
 int	ft_degage(t_pile **a)
 {
-	t_pile *tmp;
-	
-	tmp = *a;
+	t_pile	*tmp;
 
+	tmp = *a;
 	if (*a)
 	{
 		while ((*a))
